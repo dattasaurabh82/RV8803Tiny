@@ -1,0 +1,44 @@
+RV8803Tiny	KEYWORD1
+
+begin		KEYWORD2
+
+stringDate	KEYWORD2
+stringTime	KEYWORD2
+
+setTime		KEYWORD2
+setSeconds	KEYWORD2
+setMinutes	KEYWORD2
+setHours	KEYWORD2
+setWeekday	KEYWORD2
+setDate		KEYWORD2
+setMonth	KEYWORD2
+setYear		KEYWORD2
+
+updateTime	KEYWORD2
+
+getSeconds	KEYWORD2
+getMinutes	KEYWORD2
+getHours	KEYWORD2
+getWeekday	KEYWORD2
+getDate		KEYWORD2
+getMonth	KEYWORD2
+getYear		KEYWORD2
+
+setToCompilerTime	KEYWORD2
+
+BCDtoDEC	KEYWORD2
+DECtoBCD	KEYWORD2
+
+readBit		KEYWORD2
+readTwoBits	KEYWORD2
+writeBit	KEYWORD2
+readRegister	KEYWORD2
+writeRegister	KEYWORD2
+readMultipleRegisters	KEYWORD2
+writeMultipleRegisters	KEYWORD2
+
+###################################################################
+# Constants
+###################################################################
+ENABLE		LITERAL1
+DISABLE		LITERAL1
