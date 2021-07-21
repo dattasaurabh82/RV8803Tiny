@@ -18,7 +18,10 @@ But feel free to extend on it. I will definitely extend the funstions as per nee
 
 
 ## Installation: 
-Standard Arduino Library Installation method. 
+Prerequisite: [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C)
+
+Then it is Standard Arduino Library Installation method. 
+
 Take a look in the exmaples to get the ideas about the methods implemented. 
 
 ## HW Connection: 
