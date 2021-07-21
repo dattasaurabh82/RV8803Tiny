@@ -14,7 +14,7 @@ _**NOTE**_:
 1. I have not implemented all the methods as I do not need them and they will save me memory and thus current.
 But feel free to extend on it. I will definitely extend the funstions as per needed, in next releases. 🤗
 2. I have tested this library for ATTINY1607, compiled using Arduino IDE 1.8.3. But should work for others in the same series. 😕
-3. Do not for the Resistors on the SPI Bus. They are there for a reason [] 🤓
+3. Do not forget the PULLUP Resistors on the I2C Bus. They are there for a [reason](https://github.com/SpenceKonde/megaTinyCore/discussions/465) 🤓
 
 
 ## Installation: 
