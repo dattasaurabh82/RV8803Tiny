@@ -7,7 +7,8 @@ A lot of inspiration and methods were borrowed from [Sparkfun's RV8803 Libray](
 
 ## Background:
 I was working on a project where I needed to use a RTC. I needed to use very low power uC (So I stumbled upon the new ATTINY series uCs) in a very small physical footprint. Usual RTC clocks are rather big for my purpose and current consumption metrices, so I stumbled upon [RV-8803 RTC](https://www.microcrystal.com/fileadmin/Media/Products/RTC/App.Manual/RV-8803-C7_App-Manual.pdf), from microcrystal. Upon looking further on the internet, above mentioned, sparkfun library came up in focus. But the library uses `wire` library under-neath for it's i2C communication for reading and writing, to & from the RTC. The library is okay to be used in typical arduino projects but it is very memory heavy, bulky and not so efficient for my purpos. 
-So I set to rewrite some of the useful methods from the sparkfun library, replacing `wire` library parts with newely discovered, more efficient for new ATTINY's I2C needs, the [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C).
+
+So I set to rewrite some of the useful methods from the sparkfun library, replacing `wire` library parts with custom, more efficient for new ATTINY's I2C needs, the [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C).
 
 _**NOTE**_: 
 1. I have not implemented all the methods as I do not need them and they will save me memory and thus current.
