@@ -22,7 +22,9 @@ Prerequisite: [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C)
 
 Then it is Standard Arduino Library Installation method. 
 
-Take a look in the exmaples to get the ideas about the methods implemented. 
+[![asciicast](https://asciinema.org/a/426646.svg)](https://asciinema.org/a/426646?autoplay=1)
+
+Take a look in the examples to get the ideas about the methods implemented. 
 
 ## HW Connection: 
 ![Screenshot 2021-07-21 at 6 17 22 PM](https://user-images.githubusercontent.com/4619862/126473329-91724017-c11b-4ed3-bd86-b67e2438738a.png)
