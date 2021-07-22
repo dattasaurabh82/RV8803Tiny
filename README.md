@@ -28,7 +28,9 @@ Then it is Standard Arduino Library Installation method.
 Take a look in the examples to get the ideas about the methods implemented. 
 
 ## HW Connection: 
-![Screenshot 2021-07-21 at 6 17 22 PM](https://user-images.githubusercontent.com/4619862/126473329-91724017-c11b-4ed3-bd86-b67e2438738a.png)
+<p align="center">
+   <img width="920" src="https://user-images.githubusercontent.com/4619862/126473329-91724017-c11b-4ed3-bd86-b67e2438738a.png">
+</p>
 
 ## ToDo: 
 - [ ] Set Hundredths
