@@ -47,4 +47,5 @@ Take a look in the examples to get the ideas about the methods implemented.
 - [ ] Periodic Interrupt
 - [ ] Fine Tuning RTC. 
 
-
+## License:
+MIT [Licence.md](https://github.com/dattasaurabh82/RV8803Tiny/blob/main/LICENSE.md)
