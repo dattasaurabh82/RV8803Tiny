@@ -18,9 +18,16 @@ But feel free to extend on it. I will definitely extend the funstions as per nee
 
 
 ## Installation: 
-Prerequisite: [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C)
 
-Then it is Standard Arduino Library Installation method. 
+**_Prerequisite_**: [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C)
+
+Then it is Standard Arduino Library Installation method:
+### From Library Manager:
+<p align="center">
+   <img width="920" src="https://raw.githubusercontent.com/dattasaurabh82/RV8803Tiny/main/assets/LibInstall.gif">
+</p>
+
+### From arduino-cli:
 <p align="center">
    <img width="920" src="https://raw.githubusercontent.com/dattasaurabh82/RV8803Tiny/main/assets/install.svg">
 </p>
