@@ -22,7 +22,7 @@ Prerequisite: [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C)
 
 Then it is Standard Arduino Library Installation method. 
 
-[![asciicast](https://asciinema.org/a/426646.svg)](https://asciinema.org/a/426646?autoplay=1)
+[![asciicast](https://asciinema.org/a/426646.svg)](https://asciinema.org/a/426646?preload=1&size=medium&autoplay=1&loop=1)
 
 Take a look in the examples to get the ideas about the methods implemented. 
 
