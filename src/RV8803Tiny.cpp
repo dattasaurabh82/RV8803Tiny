@@ -108,6 +108,15 @@ char *RV8803Tiny::stringTime()
 {
     static char time[9]; //Max of hh:mm:ss with \0 terminator
     sprintf(time, "%02d:%02d:%02d", BCDtoDEC(_time[TIME_HOURS]), BCDtoDEC(_time[TIME_MINUTES]), BCDtoDEC(_time[TIME_SECONDS]));
+    return (time);
+}
+
+//Returns the date in the DD/MM/YYYY format.
+char *RV8803Tiny::stringDate()
+{
+    static char date[11]; //Max of dd/mm/yyyy with \0 terminator
+    sprintf(date, "%02d/%02d/20%02d", BCDtoDEC(_time[TIME_DATE]), BCDtoDEC(_time[TIME_MONTH]), BCDtoDEC(_time[TIME_YEAR]));
+    return (date);
 }
 
 uint8_t RV8803Tiny::getSeconds()
