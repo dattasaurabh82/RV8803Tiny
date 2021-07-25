@@ -40,6 +40,7 @@ Take a look in the examples to get the ideas about the methods implemented.
 </p>
 
 ## ToDo: 
+- [ ] Print Date
 - [ ] Set Hundredths
 - [ ] Timestamp
 - [ ] Alarm interrupts
