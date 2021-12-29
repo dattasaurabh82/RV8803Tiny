@@ -1,5 +1,7 @@
 # RV8803Tiny
-A RV8803 RTC i2c based interafcing library for the new 0-series and 1-series ATtiny and ATmega based uCs. 
+A RV8803 RTC i2c based interafcing library for the new 0-series and 1-series ATtiny and ATmega based uCs.
+
+**Note:** Method implementations are very specific to my use-case for a project. Thus lot of capabilities of the RTC is not implemented as I didn't need them. 
 
 ## Inspiration:
 Tested in ATTINY1607 running on [megaTinyCore](https://github.com/SpenceKonde/megaTinyCore) compiled in Arduino IDE 1.8.13.
