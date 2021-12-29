@@ -163,7 +163,18 @@ uint8_t RV8803Tiny::nthdig(int n, uint8_t k)
     return k % 10;
 }
 
-RV8803Tiny::updateTimeArray(void)
+// RV8803Tiny::updateTimeArray(void)
+// {
+//     currTimeArray[0] = nthdig(1, getHours());
+//     currTimeArray[1] = nthdig(0, getHours());
+//     currTimeArray[2] = nthdig(1, getMinutes());
+//     currTimeArray[3] = nthdig(0, getMinutes());
+//     currTimeArray[4] = nthdig(1, getSeconds());
+//     currTimeArray[5] = nthdig(0, getSeconds());
+// }
+
+//-- NEW TEST ADDITION --//
+uint8_t* RV8803Tiny::currTimeAsArray()
 {
     currTimeArray[0] = nthdig(1, getHours());
     currTimeArray[1] = nthdig(0, getHours());
@@ -171,7 +182,10 @@ RV8803Tiny::updateTimeArray(void)
     currTimeArray[3] = nthdig(0, getMinutes());
     currTimeArray[4] = nthdig(1, getSeconds());
     currTimeArray[5] = nthdig(0, getSeconds());
+
+    return currTimeArray;
 }
+//-----------------------//
 
 //------------ Setting time ----------------//
 // Set time and date/day registers of RV8803

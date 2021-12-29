@@ -91,11 +91,14 @@ public:
 
     bool updateTime(); //Update the local array with the RTC registers
 
-    //    uint8_t nthdig(int n, int k);
-    //    int* getTimeAsArray();
+    //-- ORIGINAL APPROACH --//
+    // uint8_t currTimeArray[6];
+    // updateTimeArray(void);
+    //-----------------------//
 
-    uint8_t currTimeArray[6];
-    updateTimeArray(void);
+    //-- NEW TEST ADDITION --//
+    uint8_t* currTimeAsArray();
+    //-----------------------//
 
     bool setToCompilerTime();
 
@@ -120,6 +123,7 @@ public:
     uint8_t DECtoBCD(uint8_t val);
 
 private:
+    uint8_t currTimeArray[6];
     uint8_t _time[TIME_ARRAY_LENGTH];
     uint8_t dataSentCounter;
     uint8_t nthdig(int n, uint8_t k);
