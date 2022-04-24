@@ -84,13 +84,13 @@ bool RV8803Tiny::updateTime()
         return (false);
     }
 
-    // If seconds are at 59, read again to make sure we didn't accidentally skip a minute
-    if (BCDtoDEC(_time[TIME_SECONDS]) == 59)
+    //If hundredths are at 99 or seconds are at 59, read again to make sure we didn't accidentally skip a second/minute
+    if (BCDtoDEC(_time[TIME_HUNDREDTHS]) == 99 || BCDtoDEC(_time[TIME_SECONDS]) == 59)
     {
         uint8_t tempTime[TIME_ARRAY_LENGTH];
 
-        // If the reading for seconds changed, then our new data is correct, otherwise, we can leave the old data.
-        if (BCDtoDEC(tempTime[TIME_SECONDS]) == 0)
+        //If the reading for hundredths has rolled over, then our new data is correct, otherwise, we can leave the old data.
+        if (BCDtoDEC(_time[TIME_HUNDREDTHS]) > BCDtoDEC(tempTime[TIME_HUNDREDTHS])) 
         {
             memcpy(_time, tempTime, TIME_ARRAY_LENGTH);
         }
