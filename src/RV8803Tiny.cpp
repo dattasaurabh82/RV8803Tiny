@@ -78,22 +78,6 @@ bool RV8803Tiny::begin()
 
 bool RV8803Tiny::updateTime()
 {
-    /*----- WIP/TEST: Use this part to check TIME_HUNDREDTHS -----*/
-    /* Based on that we have created the below conditionals  */
-    //
-    // Serial.println("\n--------------------------");
-    // Serial.println("[IN LIB] updating time ...");
-    // Serial.print("[IN LIB] TIME_HUNDREDTHS: ");
-    // Serial.println(BCDtoDEC(_time[TIME_HUNDREDTHS]));
-    // Serial.print("[IN LIB] TIME: ");
-    // Serial.print(BCDtoDEC(_time[TIME_HOURS]));
-    // Serial.print(":");
-    // Serial.print(BCDtoDEC(_time[TIME_MINUTES]));
-    // Serial.print(":");
-    // Serial.println(BCDtoDEC(_time[TIME_SECONDS]));
-    // bool update = false;
-    /*------------------------------------------------------*/
-
     if (!readMultipleRegisters(RV8803_HUNDREDTHS, _time, TIME_ARRAY_LENGTH))
     {   
         // Something went wrong
