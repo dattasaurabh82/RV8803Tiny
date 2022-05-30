@@ -78,28 +78,50 @@ bool RV8803Tiny::begin()
 
 bool RV8803Tiny::updateTime()
 {
+    /*----- WIP: Use this part to check TIME_HUNDREDTHS -----*/
+    /* Based on that we have created the below conditionals  */
+    //
+    // Serial.println("\n--------------------------");
+    // Serial.println("[IN LIB] updating time ...");
+    // Serial.print("[IN LIB] TIME_HUNDREDTHS: ");
+    // Serial.println(BCDtoDEC(_time[TIME_HUNDREDTHS]));
+    // Serial.print("[IN LIB] TIME: ");
+    // Serial.print(BCDtoDEC(_time[TIME_HOURS]));
+    // Serial.print(":");
+    // Serial.print(BCDtoDEC(_time[TIME_MINUTES]));
+    // Serial.print(":");
+    // Serial.println(BCDtoDEC(_time[TIME_SECONDS]));
+    // bool update = false;
+    /*------------------------------------------------------*/
+
     if (!readMultipleRegisters(RV8803_HUNDREDTHS, _time, TIME_ARRAY_LENGTH))
-    {
+    {   
         // Something went wrong
         return (false);
     }
 
-    //If hundredths are at 99 or seconds are at 59, read again to make sure we didn't accidentally skip a second/minute
-    if (BCDtoDEC(_time[TIME_HUNDREDTHS]) == 99 || BCDtoDEC(_time[TIME_SECONDS]) == 59)
-    {
+    if (BCDtoDEC(_time[TIME_HUNDREDTHS]) == 99 ||   /* if hundredths are at 99, read again to make sure we didn't accidentally skip a second/min */
+        BCDtoDEC(_time[TIME_SECONDS]) == 59 ||      /* if seconds are at 59, read again to make sure we didn't accidentally skip a second/min */
+        BCDtoDEC(_time[TIME_HUNDREDTHS]) == 0 || 
+        BCDtoDEC(_time[TIME_SECONDS]) == 0 ||
+        BCDtoDEC(_time[TIME_SECONDS]) > 60)
+        {
+
         uint8_t tempTime[TIME_ARRAY_LENGTH];
 
-        //If the reading for hundredths has rolled over, then our new data is correct, otherwise, we can leave the old data.
+        // If the reading for hundredths has rolled over, then our new data is correct, otherwise, we can leave the old data.
         if (BCDtoDEC(_time[TIME_HUNDREDTHS]) > BCDtoDEC(tempTime[TIME_HUNDREDTHS])) 
         {
             memcpy(_time, tempTime, TIME_ARRAY_LENGTH);
         }
+
         if (!readMultipleRegisters(RV8803_HUNDREDTHS, tempTime, TIME_ARRAY_LENGTH))
-        {
+        {   
             // Something went wrong
             return (false);
         }
     }
+
     return true;
 }
 
@@ -163,17 +185,6 @@ uint8_t RV8803Tiny::nthdig(int n, uint8_t k)
     return k % 10;
 }
 
-// RV8803Tiny::updateTimeArray(void)
-// {
-//     currTimeArray[0] = nthdig(1, getHours());
-//     currTimeArray[1] = nthdig(0, getHours());
-//     currTimeArray[2] = nthdig(1, getMinutes());
-//     currTimeArray[3] = nthdig(0, getMinutes());
-//     currTimeArray[4] = nthdig(1, getSeconds());
-//     currTimeArray[5] = nthdig(0, getSeconds());
-// }
-
-//-- NEW TEST ADDITION --//
 uint8_t* RV8803Tiny::currTimeAsArray()
 {
     currTimeArray[0] = nthdig(1, getHours());
@@ -185,7 +196,6 @@ uint8_t* RV8803Tiny::currTimeAsArray()
 
     return currTimeArray;
 }
-//-----------------------//
 
 //------------ Setting time ----------------//
 // Set time and date/day registers of RV8803
