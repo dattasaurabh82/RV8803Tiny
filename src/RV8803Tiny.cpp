@@ -78,7 +78,7 @@ bool RV8803Tiny::begin()
 
 bool RV8803Tiny::updateTime()
 {
-    /*----- WIP: Use this part to check TIME_HUNDREDTHS -----*/
+    /*----- WIP/TEST: Use this part to check TIME_HUNDREDTHS -----*/
     /* Based on that we have created the below conditionals  */
     //
     // Serial.println("\n--------------------------");
