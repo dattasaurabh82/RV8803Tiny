@@ -98,6 +98,7 @@ public:
 
     //-- NEW TEST ADDITION --//
     uint8_t* currTimeAsArray();
+    uint8_t* currDateAsArray();
     //-----------------------//
 
     bool setToCompilerTime();
@@ -124,6 +125,8 @@ public:
 
 private:
     uint8_t currTimeArray[6];
+    uint8_t currDateArray[6];
+    uint16_t currDecade = 2000; // update it in 978 years when we step in 3000's :)
     uint8_t _time[TIME_ARRAY_LENGTH];
     uint8_t dataSentCounter;
     uint8_t nthdig(int n, uint8_t k);

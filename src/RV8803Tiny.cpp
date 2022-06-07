@@ -159,7 +159,7 @@ uint8_t RV8803Tiny::getMonth()
 
 uint16_t RV8803Tiny::getYear()
 {
-    return BCDtoDEC(_time[TIME_YEAR]) + 2000;
+    return BCDtoDEC(_time[TIME_YEAR]) + currDecade;
 }
 
 uint8_t RV8803Tiny::nthdig(int n, uint8_t k)
@@ -181,6 +181,18 @@ uint8_t* RV8803Tiny::currTimeAsArray()
     return currTimeArray;
 }
 
+uint8_t* RV8803Tiny::currDateAsArray()
+{
+    currDateArray[0] = nthdig(1, getDate());
+    currDateArray[1] = nthdig(0, getDate());
+    currDateArray[2] = nthdig(1, getMonth());
+    currDateArray[3] = nthdig(0, getMonth());
+    currDateArray[4] = nthdig(1, getYear() - currDecade);
+    currDateArray[5] = nthdig(0, getYear() - currDecade);
+
+    return currDateArray;
+}
+
 //------------ Setting time ----------------//
 // Set time and date/day registers of RV8803
 // Set time and date/day registers of RV8803 (using data array)
@@ -200,7 +212,7 @@ bool RV8803Tiny::setTime(uint8_t sec, uint8_t min, uint8_t hour, uint8_t weekday
     _time[TIME_DATE] = DECtoBCD(date);
     _time[TIME_WEEKDAY] = 1 << weekday;
     _time[TIME_MONTH] = DECtoBCD(month);
-    _time[TIME_YEAR] = DECtoBCD(year - 2000);
+    _time[TIME_YEAR] = DECtoBCD(year - currDecade);
 
     return setTime(_time, TIME_ARRAY_LENGTH); //Subtract one as we don't write to the hundredths register
 }
@@ -215,7 +227,7 @@ bool RV8803Tiny::setToCompilerTime()
 
     _time[TIME_MONTH] = DECtoBCD(BUILD_MONTH);
     _time[TIME_DATE] = DECtoBCD(BUILD_DATE);
-    _time[TIME_YEAR] = DECtoBCD(BUILD_YEAR - 2000); //! Not Y2K (or Y2.1K)-proof :(
+    _time[TIME_YEAR] = DECtoBCD(BUILD_YEAR - currDecade); //! Not Y2K (or Y2.1K)-proof :(
 
     // Calculate weekday (from here: http://stackoverflow.com/a/21235587)
     // 0 = Sunday, 6 = Saturday
@@ -260,7 +272,7 @@ bool RV8803Tiny::setMonth(uint8_t value)
 
 bool RV8803Tiny::setYear(uint16_t value)
 {
-    _time[TIME_YEAR] = DECtoBCD(value - 2000);
+    _time[TIME_YEAR] = DECtoBCD(value - currDecade);
     return setTime(_time, TIME_ARRAY_LENGTH);
 }
 
