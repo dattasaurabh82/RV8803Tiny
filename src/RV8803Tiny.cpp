@@ -276,6 +276,15 @@ bool RV8803Tiny::setYear(uint16_t value)
     return setTime(_time, TIME_ARRAY_LENGTH);
 }
 
+bool RV8803Tiny::setWeekday(uint8_t value) // value is anywhere between 0=sunday and 6=saturday
+{
+    if (value > 6) {
+        value = 6;
+    }
+    _time[TIME_WEEKDAY] = 1 << value;
+    return setTime(_time, TIME_ARRAY_LENGTH);
+}
+
 //--------------------------------------------------------//
 //----------- READ | WRIRE | OPERATION WRAPPERS ----------//
 //--------------------------------------------------------//
